@@ -1,11 +1,9 @@
 import { ViewStyle } from "react-native";
-
 import { AbstractChartProps } from "../AbstractChart";
 import ContributionGraph, {
   ContributionChartValue,
   TooltipDataAttrs
 } from "./ContributionGraph";
-
 export interface ContributionGraphProps extends AbstractChartProps {
   values: Array<any>;
   endDate: Date;
@@ -19,17 +17,22 @@ export interface ContributionGraphProps extends AbstractChartProps {
   showOutOfRangeDays?: boolean;
   accessor?: string;
   getMonthLabel?: (monthIndex: number) => string;
-  onDayPress?: ({ count: number, date: Date }) => void;
+  onDayPress?: ({
+    count: number,
+    date: Date
+  }: {
+    count: any;
+    date: any;
+  }) => void;
   classForValue?: (value: string) => string;
   style?: Partial<ViewStyle>;
   titleForValue?: (value: ContributionChartValue) => string;
   tooltipDataAttrs: TooltipDataAttrs;
 }
-
-export type ContributionGraphState = {
+export declare type ContributionGraphState = {
   maxValue: number;
   minValue: number;
   valueCache: object;
 };
-
 export default ContributionGraph;
+//# sourceMappingURL=index.d.ts.map

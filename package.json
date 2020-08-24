@@ -1,5 +1,5 @@
 {
-  "name": "react-native-chart-kit",
+  "name": "@cloudgakkai/react-native-chart-kit",
   "version": "6.6.0",
   "devDependencies": {
     "@types/react": "^16.9.38",
