@@ -40,6 +40,7 @@
     "ios": "expo start --ios",
     "test": "jest --passWithNoTests",
     "dev": "tsc --watch",
+    "publish": "yarn build",
     "prepublish": "yarn build"
   },
   "jest": {
