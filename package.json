@@ -27,24 +27,13 @@
     "react-test-renderer": "16.7.0",
     "typescript": "^3.9.5"
   },
-  "_main": "./node_modules/expo/AppEntry.js",
-  "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "main": "./index.js",
   "scripts": {
     "start": "expo start",
     "eject": "expo eject",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "test": "jest --passWithNoTests",
-    "dev": "tsc --watch",
-    "build": "yarn build",
-    "prepublish": "yarn build"
-  },
-  "jest": {
-    "preset": "jest-expo"
+    "test": "jest --passWithNoTests"
   },
   "peerDependencies": {
     "react": "> 16.7.0",
@@ -55,10 +44,5 @@
     "lodash": "^4.17.13",
     "paths-js": "^0.4.10",
     "point-in-polygon": "^1.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   }
 }
