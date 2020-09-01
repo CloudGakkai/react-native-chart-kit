@@ -190,6 +190,7 @@ var StackedBarChart = /** @class */ (function(_super) {
       border = max;
     }
     var stackedBar = data.legend && data.legend.length == 0 ? false : true;
+    const hasBar = data.data.find((obj) => obj[0] !== 0 || obj[1] !== 0);
     return (
       <View style={style}>
         <Svg height={height} width={width}>
@@ -237,7 +238,7 @@ var StackedBarChart = /** @class */ (function(_super) {
               : null}
           </G>
           <G>
-            {this.renderBars(
+            {hasBar && this.renderBars(
               __assign(__assign({}, config), {
                 data: data.data,
                 border: border,
