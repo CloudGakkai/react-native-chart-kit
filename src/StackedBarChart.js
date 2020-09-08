@@ -54,7 +54,7 @@ var StackedBarChart = /** @class */ (function(_super) {
       return barPercentage;
     };
     _this.getBarRadius = function(ret, x) {
-      return _this.props.chartConfig.barRadius && ret.length === x.length - 1
+      return ret.length === x.length - 1
         ? _this.props.chartConfig.barRadius
         : 0;
     };
@@ -68,6 +68,8 @@ var StackedBarChart = /** @class */ (function(_super) {
         colors = _a.colors,
         _b = _a.stackedBar,
         stackedBar = _b === void 0 ? false : _b;
+
+        console.log(data)
       return data.map(function(x, i) {
         var barWidth = 32 * _this.getBarPercentage();
         var ret = [];
@@ -82,9 +84,9 @@ var StackedBarChart = /** @class */ (function(_super) {
               return a + b;
             }, 0)
           : border;
-        for (var z = 0; z < x.length; z++) {
+        for (var z = 1; z >= 0; z--) {
           h = (height - 55) * (x[z] / sum);
-          var y = (height / 4) * 3 - h + st;
+          var y = data[i][0] !== 0 && z === 0 ? (height - 55) - (h-5) : (height / 4) * 3 - h + st;
           var xC =
             (paddingRight +
               (i * (width - paddingRight)) / data.length +
@@ -95,10 +97,10 @@ var StackedBarChart = /** @class */ (function(_super) {
               key={Math.random()}
               x={xC}
               y={y}
-              rx={_this.getBarRadius(ret, x)}
-              ry={_this.getBarRadius(ret, x)}
+              rx={10}
+              ry={10}
               width={barWidth}
-              height={h}
+              height={data[i][0] !== 0 && z === 0 ? h : h}
               fill={colors[z]}
             />
           );
